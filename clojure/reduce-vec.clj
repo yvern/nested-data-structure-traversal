@@ -1,5 +1,3 @@
-(require '[clojure.test :refer [is with-test]])
-
 (def input
   [{:title "Getting started"
     :reset-lesson-position false
@@ -53,6 +51,5 @@
          (update-section last-section start)
          (conj acc))))
 
-(with-test
-  (defn update-sections [data] (reduce combine-seciton [] data))
-  (is (= expected (update-sections input))))
+(defn update-sections [data] (reduce combine-seciton [] data))
+(assert (= expected (update-sections input)))
